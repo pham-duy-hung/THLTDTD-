@@ -8,18 +8,22 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.ute.thltdtd_bt1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        val layoutMain = findViewById<LinearLayout>(R.id.layoutMain)
-        val myButton = Button(this).apply{
-            text="click here"
-            setOnClickListener { Toast.makeText(this@MainActivity,"Bạn đã ấn nút",Toast.LENGTH_SHORT).show() }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val myButton = Button(this).apply {
+            text = "Click me!"
+            setOnClickListener {
+                Toast.makeText(this@MainActivity, "Đã bấm nút", Toast.LENGTH_SHORT).show()
+            }
         }
-
-        layoutMain.addView(myButton)
+        binding.layoutMain.addView(myButton)
     }
 }

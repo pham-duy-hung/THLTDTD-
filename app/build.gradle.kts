@@ -7,7 +7,9 @@ android {
     compileSdk {
         version = release(37)
     }
-
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.ute.thltdtd_bt1"
         minSdk = 24
